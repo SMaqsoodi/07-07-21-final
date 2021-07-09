@@ -1,0 +1,18 @@
+---
+- name: provision-ec2
+  hosts: localhost
+
+  tasks:
+  - name: launching AWS instance using Ansible
+    ec2:
+      key_name: my_aws
+      instance_type: t2.micro
+      image: ami-0f93b5fd8f220e428
+      region: us-east-2
+      wait: yes
+      #  group: mygroup.cg
+      count: 1 
+      vpc_subnet_id: subnet-0d95521d9170065ac
+      assign_public_ip: yes
+      aws_access_key: AKIAU3WAXE73UIOX2VXM
+      aws_secret_key: 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
