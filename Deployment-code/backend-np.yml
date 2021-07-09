@@ -1,0 +1,18 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: mysql-np
+spec:
+  podSelector:
+    matchLabels:
+      db: eaaypay
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          proejct: capstone
+    ports:
+    - protocol: TCP
+      port: 3306 #port allowed      
